@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Services\NewsAggregator\Guardianapis;
 use App\Services\NewsAggregator\Newsapi;
+use App\Services\NewsAggregator\Nytimes;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -31,6 +32,7 @@ class LoadNews extends Command
         $aggregators = [
             'newsapi'      => new Newsapi,
             'guardianapis' => new Guardianapis,
+            'nytimes'      => new Nytimes,
         ];
 
         $bar = $this->output->createProgressBar(count($aggregators));
