@@ -19,7 +19,7 @@ return [
     ],
 
     'ses' => [
-        'key' => env('AWS_ACCESS_KEY_ID'),
+        'key'    => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
@@ -31,13 +31,18 @@ return [
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
-            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
+            'channel'              => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
 
     'newsapi' => [
         'base_url' => env('NEWSAPI_URL', 'https://newsapi.org/v2'),
-        'api_key' => env('NEWSAPI_API_KEY'),
+        'api_key'  => env('NEWSAPI_API_KEY'),
+    ],
+
+    'guardianapis' => [
+        'base_url' => env('GUARDIANAPIS_URL', 'https://content.guardianapis.com'),
+        'api_key'  => env('GUARDIANAPIS_API_KEY'),
     ],
 
 ];
