@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Http;
 
 beforeEach(function () {
     Http::preventStrayRequests();
+    $this->base_url = config('services.newsapi.url') . '/top-headlines*';
 });
 
 it('Fetches news from Newsapi', function () {
     Http::fake([
-        'https://newsapi.org/v2/top-headlines*' => Http::response([
+        $this->base_url => Http::response([
             'articles' => [
                 [
                     'title'       => 'Test Title',
@@ -32,7 +33,7 @@ it('Fetches news from Newsapi', function () {
 
 it('Handles empty news response from Newsapi', function () {
     Http::fake([
-        'https://newsapi.org/v2/top-headlines*' => Http::response([
+        $this->base_url => Http::response([
             'articles' => [],
         ]),
     ]);
@@ -47,7 +48,7 @@ it('Handles empty news response from Newsapi', function () {
 
 it('Throws exception on failed request to Newsapi', function () {
     Http::fake([
-        'https://newsapi.org/v2/top-headlines*' => Http::response(null, 500),
+        $this->base_url => Http::response(null, 500),
     ]);
 
     $newsapi = new Newsapi;
