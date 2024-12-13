@@ -15,5 +15,6 @@ class ArticleData extends Data
         public string $source,
         #[Date]
         public CarbonImmutable $published_at,
+        public ?int $id = null,
     ) {}
 }

@@ -13,4 +13,8 @@ class Article extends Model
     protected $fillable = [
         'title', 'description', 'link', 'source', 'published_at',
     ];
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
 }
