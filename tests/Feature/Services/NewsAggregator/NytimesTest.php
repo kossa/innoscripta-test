@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Http;
 
 beforeEach(function () {
     Http::preventStrayRequests();
-    $this->base_url = config('services.nytimes.base_url') . '/articlesearch.json';
+    $this->base_url = config('services.nytimes.base_url') . '/articlesearch.json*';
 });
 
 it('Fetches news from Nytimes', function () {
