@@ -16,7 +16,7 @@ php artisan serve
 Visit `http://localhost:8000/api/articles` in your browser.
 
 
-### Filtering and sorting
+### Filtering and sorting
 You can filter and sort the articles by using the following query parameters:
 - `filter[title]`: Filter articles by title.
 - `filter[id]`: Filter articles by id.
@@ -25,7 +25,11 @@ You can filter and sort the articles by using the following query parameters:
 - `sort=-id`: Sort articles by id in descending order.
 - `sort=id`: Sort articles by id in ascending order.
 - `sort=-published_at`: Sort articles by published_at in descending order.
+- `per_page=10`: Limit the number of articles per page.
 
+Example: `http://localhost:8000/api/articles?filter[title]=news&sort=-id&per_page=50`
+
+![filtering and sorting](https://i.ibb.co/72DTG4c/image-2024-12-13-074751357.png)
 
 ### Integrated aggregators
 - [News API](https://newsapi.org/)
