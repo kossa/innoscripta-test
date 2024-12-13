@@ -14,7 +14,7 @@ class ArticleController extends Controller
         $articles = QueryBuilder::for(Article::class)
                             ->allowedFilters(['title', 'description', 'source'])
                             ->allowedSorts(['id', 'published_at'])
-                            ->paginate(20)
+                            ->paginate(request('per_page', 20))
                             ->withQueryString();
 
         return ArticleData::collect($articles);
